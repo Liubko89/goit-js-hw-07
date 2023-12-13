@@ -10,9 +10,8 @@ const showUl = (arr) => {
     const title = el.firstElementChild.textContent;
     console.log(`Category ${title}`);
 
-    const innerList = el.lastElementChild;
-    const children = innerList.children.length;
-    console.log(`Elements ${children}`);
+    const innerList = el.lastElementChild.children.length;
+    console.log(`Elements ${innerList}`);
   });
 };
 

@@ -17,6 +17,7 @@ li {
   list-style-type: none;
 }
 
+h1,
 h2 {
   margin: 0;
 }
@@ -29,6 +30,7 @@ h2 {
 .item {
   width: 100%;
   padding: 16px;
+  background-color: #f6f6fe;
 }
 
 .item:not(:last-child) {
@@ -57,4 +59,40 @@ h2 {
   width: 100%;
   height: 40px;
   padding: 8px 16px;
+}
+
+.gallery {
+  width: 1440px;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 48px;
+  column-gap: 24px;
+  padding: 100px 156px;
+}
+
+.gallery-item {
+  flex-basis: calc((100% - 2 * 24) / 3);
+}
+
+.gallery-image {
+  display: block;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#name-input {
+  width: 360px;
+  height: 40px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  border: 1px solid #808080;
+}
+
+#name-input,
+#name-input::placeholder {
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
 }
