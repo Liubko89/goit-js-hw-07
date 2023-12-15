@@ -125,8 +125,8 @@ h2 {
   border: 1px solid #808080;
 }
 
+.widget > button,
 .login-form > button {
-  width: 86px;
   height: 40px;
   display: flex;
   padding: 8px 16px;
@@ -140,5 +140,13 @@ h2 {
   font-family: Montserrat, sans-serif;
   font-size: 16px;
   font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.widget > p {
+  color: #2e2f42;
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
   letter-spacing: 0.04em;
 }
