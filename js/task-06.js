@@ -14,14 +14,14 @@ boxes.style.flexWrap = "wrap";
 
 const addContainers = (event) => {
   const inputValue = event.target.value;
-  if (inputValue >= input.min && inputValue <= input.max) {
+  if (input.value >= 1 && input.value <= 100) {
     const create = () => {
       boxes.innerHTML = "";
       let size = 24;
       for (let i = 0; i < inputValue; i += 1) {
         boxes.insertAdjacentHTML(
           "beforeend",
-          `<div style="background-color:${getRandomHexColor()};width:${size}px;height:${size}px;display:flex;flex-direction:row;"></div>`
+          `<div style="background-color:${getRandomHexColor()};width:${size}px;height:${size}px;"></div>`
         );
         size += 24;
       }
@@ -32,7 +32,12 @@ const addContainers = (event) => {
 
     btnCreate.addEventListener("click", create);
     btnDestroy.addEventListener("click", () => (boxes.innerHTML = ""));
+    console.log(inputValue);
+  } else {
+    input.value = "";
+    boxes.innerHTML = "";
+    alert("Enter a number from 1 to 100");
   }
 };
 
-input.addEventListener("input", addContainers);
+input.addEventListener("change", addContainers);
