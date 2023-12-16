@@ -12,32 +12,31 @@ boxes.style.display = "flex";
 boxes.style.gap = "16px";
 boxes.style.flexWrap = "wrap";
 
-const addContainers = (event) => {
-  const inputValue = event.target.value;
-  if (input.value >= 1 && input.value <= 100) {
-    const create = () => {
-      boxes.innerHTML = "";
-      let size = 24;
-      for (let i = 0; i < inputValue; i += 1) {
-        boxes.insertAdjacentHTML(
-          "beforeend",
-          `<div style="background-color:${getRandomHexColor()};width:${size}px;height:${size}px;"></div>`
-        );
-        size += 24;
-      }
+btnCreate.addEventListener("click", () => {
+  const amount = Number(input.value);
+  createBoxes(amount);
+});
 
-      input.value = "";
-      btnCreate.removeEventListener("click", create);
-    };
+btnDestroy.addEventListener("click", destroyBoxes);
 
-    btnCreate.addEventListener("click", create);
-    btnDestroy.addEventListener("click", () => (boxes.innerHTML = ""));
-    console.log(inputValue);
-  } else {
-    input.value = "";
-    boxes.innerHTML = "";
-    alert("Enter a number from 1 to 100");
+function destroyBoxes() {
+  boxes.innerHTML = "";
+}
+
+function createBoxes(amount) {
+  if (amount < 1 || amount > 100) {
+    alert("Введіть будь ласка число від 1 до 100.");
+    return;
   }
-};
-
-input.addEventListener("change", addContainers);
+  destroyBoxes();
+  let size = 30;
+  for (let i = 0; i < amount; i += 1) {
+    const box = document.createElement("div");
+    box.style.backgroundColor = getRandomHexColor();
+    box.style.width = `${size}px`;
+    box.style.height = `${size}px`;
+    boxes.appendChild(box);
+    size += 10;
+  }
+  input.value = "";
+}
