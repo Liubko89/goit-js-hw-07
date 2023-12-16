@@ -10,11 +10,11 @@ const input = document.querySelector("input");
 
 boxes.style.display = "flex";
 boxes.style.gap = "16px";
+boxes.style.flexWrap = "wrap";
 
-const getEvents = (event) => {
+const addContainers = (event) => {
   const inputValue = event.target.value;
-
-  if (inputValue > 0) {
+  if (inputValue >= input.min && inputValue <= input.max) {
     const create = () => {
       boxes.innerHTML = "";
       let size = 24;
@@ -35,4 +35,4 @@ const getEvents = (event) => {
   }
 };
 
-input.addEventListener("input", getEvents);
+input.addEventListener("input", addContainers);
